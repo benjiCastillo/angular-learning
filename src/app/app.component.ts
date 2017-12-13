@@ -16,8 +16,11 @@ export class AppComponent {
     this.listo = false;
     setTimeout(() => {
       this.listo = true;
-    }, 2000);
+    }, 100);
 
+  }
+  maker(){
+    alert("hacer");
   }
 
 }
