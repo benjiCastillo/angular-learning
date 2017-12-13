@@ -8,12 +8,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
   lugares:Array<any>(
     [
-    {nombre:"Donas"},
-    {nombre:"Floreria"},
-    {nombre:"Panaderia"},
-    {nombre:"Perfumeria"},
-    {nombre:"Mercado"},
-    {nombre:"Naranjas"}
+    {active:true,age:22,name:"Donas"},
+    {active:false,age:22,name:"Floreria"},
+    {active:true,age:22,name:"Panaderia"},
+    {active:true,age:22,name:"Perfumeria"},
+    {active:true,age:22,name:"Mercado"},
+    {active:false,age:22,name:"Naranjas"}
     ]
   );
 

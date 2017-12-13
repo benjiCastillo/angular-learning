@@ -1,5 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <ul>
-  <li *ngFor="let lugar of lugares">{{lugar.nombre}}</li>
-
+  <ng-container *ngFor="let lugar of lugares">
+      <li *ngIf ="lugar.active" >Nombre: {{lugar.name}} Edad:{{lugar.age }}</li>
+  </ng-container>
+  
 </ul>
