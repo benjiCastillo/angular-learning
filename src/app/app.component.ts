@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title:string ;
+  name:string;
+  listo:boolean ;
+
+  constructor(){
+    this.title = "Angular";
+    this.name = "Benji";
+    this.listo = false;
+    setTimeout(() => {
+      this.listo = true;
+    }, 2000);
+
+  }
+
 }
