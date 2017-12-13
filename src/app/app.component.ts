@@ -12,6 +12,7 @@ export class AppComponent {
   latMarker:number;
   lngMarker:number;
   title:string;
+  markerN:Object ={};
   lugares:Array<any>(
     [
     {active:true,age:22,name:"Donas"},
@@ -37,7 +38,7 @@ export class AppComponent {
   }
 
   insertMarker(){
-    this.markers.push({title:this.latMarker,lat:this.latMarker, lng:this.lngMarker});
+    this.markers.push(this.markerN);
     console.log(this.markers);
     alert("success");
   }

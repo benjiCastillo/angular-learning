@@ -7,9 +7,9 @@
 </ul>
 <br>
 <hr>
-<input type="text" (ngModel)="title" placeholder="title">
-<input type="number" (ngModel)="latMarker" placeholder="lat">
-<input type="number" (ngModel)="lngarker" placeholder="lng">
+<input type="text" [(ngModel)]="markerN.title" placeholder="title">
+<input type="number" [(ngModel)]="markerN.lat" placeholder="lat">
+<input type="number" [(ngModel)]="markerN.lng" placeholder="lng">
 <button (click)="insertMarker()">Insertar Marker</button>
 <hr>
 <br>
