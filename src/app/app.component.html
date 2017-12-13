@@ -1,7 +1,21 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <ul>
   <ng-container *ngFor="let lugar of lugares">
-      <li *ngIf ="lugar.active" >Nombre: {{lugar.name}} Edad:{{lugar.age }}</li>
+    <li *ngIf="lugar.active">Nombre: {{lugar.name}} Edad:{{lugar.age }}</li>
   </ng-container>
-  
+
 </ul>
+<br>
+<hr>
+<input type="text" (ngModel)="title" placeholder="title">
+<input type="number" (ngModel)="latMarker" placeholder="lat">
+<input type="number" (ngModel)="lngarker" placeholder="lng">
+<button (click)="insertMarker()">Insertar Marker</button>
+<hr>
+<br>
+<agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+  <ng-container *ngFor="let marker of markers">
+      <agm-marker [latitude]="marker.lat"  [longitude]="marker.lng" [title]="marker.title"></agm-marker>
+  </ng-container>  
+  
+</agm-map>

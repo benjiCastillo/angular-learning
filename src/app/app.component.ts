@@ -6,6 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  lat:number;
+  lng:number;
+  zoom:number;
+  latMarker:number;
+  lngMarker:number;
+  title:string;
   lugares:Array<any>(
     [
     {active:true,age:22,name:"Donas"},
@@ -17,8 +23,23 @@ export class AppComponent {
     ]
   );
 
-  constructor(){
+  markers:Array<any>([
+    {title:"lugar1",lat:-19.0464192,lng:-65.2560251},
+    {title:"lugar2",lat:-19.0445836,lng:-65.256862},
+    {title:"lugar3",lat:-19.0449198,lng:-65.2593355}
+  ]);
 
+  constructor(){
+    this.lat = -19.0464192;
+    this.lng = -65.2560251;
+    this.zoom = 15;
+
+  }
+
+  insertMarker(){
+    this.markers.push({title:this.latMarker,lat:this.latMarker, lng:this.lngMarker});
+    console.log(this.markers);
+    alert("success");
   }
 
 }
