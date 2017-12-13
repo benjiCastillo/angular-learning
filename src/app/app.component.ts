@@ -6,23 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title:string ;
-  name:string;
-  listo:boolean ;
-  name1:string;
+  lugares:Array<any>(
+    [
+    {nombre:"Donas"},
+    {nombre:"Floreria"},
+    {nombre:"Panaderia"},
+    {nombre:"Perfumeria"},
+    {nombre:"Mercado"},
+    {nombre:"Naranjas"}
+    ]
+  );
 
   constructor(){
-    this.title = "Angular";
-    this.name = "Benji";
-    this.name1 = "";
-    this.listo = false;
-    setTimeout(() => {
-      this.listo = true;
-    }, 100);
 
-  }
-  maker(){
-    alert("hacer");
   }
 
 }
