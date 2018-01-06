@@ -1,21 +1,26 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<ul>
-  <ng-container *ngFor="let lugar of lugares">
-    <li *ngIf="lugar.active">Nombre: {{lugar.name}} Edad:{{lugar.age }}</li>
-  </ng-container>
-
-</ul>
-<br>
-<hr>
-<input type="text" [(ngModel)]="markerN.title" placeholder="title">
-<input type="number" [(ngModel)]="markerN.lat" placeholder="lat">
-<input type="number" [(ngModel)]="markerN.lng" placeholder="lng">
-<button (click)="insertMarker()">Insertar Marker</button>
-<hr>
-<br>
-<agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
-  <ng-container *ngFor="let marker of markers">
-      <agm-marker [latitude]="marker.lat"  [longitude]="marker.lng" [title]="marker.title"></agm-marker>
-  </ng-container>  
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">PlatziSquare</a>
+      </div>
   
-</agm-map>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li routerLinkActive="active" ><a routerLink="/lugares" >Inicio <span class="sr-only">(current)</span></a></li>
+          <li routerLinkActive="active" ><a routerLink="/detalle/1" >Detalle</a></li>
+        </ul>
+
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+<router-outlet></router-outlet>
