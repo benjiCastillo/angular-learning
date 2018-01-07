@@ -1,3 +1,15 @@
-<p>
-  detalle works!
-</p>
+<div class="well">
+  <a routerLink="/lugares">Lugares</a> / {{ lugar.name }}
+</div>
+<div class="container">
+  <h1>{{ lugar.name}}</h1>
+  <hr>
+  <div class="well">
+    <small>Distancia {{ lugar.distancia }} Km</small>
+    <br>
+    <p>
+      {{ lugar.description }}
+    </p>
+    <b>Plan: {{ lugar.plan }}</b>
+  </div>
+</div>
