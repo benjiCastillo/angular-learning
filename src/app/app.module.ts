@@ -17,12 +17,14 @@ import { RouterModule } from '@angular/router';
 import { LugaresComponent } from './lugares/lugares.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { LugaresService } from './services/lugares.service';
+import { CrearComponent } from './crear/crear.component';
 
 const appRoutes:Routes = [
   {path:'', component:AppComponent},
   {path:'lugares', component:LugaresComponent},
   {path:'detalle/:id', component:DetalleComponent},
   {path:'contacto', component:ContactoComponent},
+  {path:'crear', component:CrearComponent},
 ];
 
 @NgModule({
@@ -30,7 +32,8 @@ const appRoutes:Routes = [
     AppComponent,
     DetalleComponent,
     LugaresComponent,
-    ContactoComponent
+    ContactoComponent,
+    CrearComponent
   ],
   imports: [
     BrowserModule,

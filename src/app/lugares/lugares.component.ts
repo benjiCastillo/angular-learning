@@ -13,7 +13,12 @@ export class LugaresComponent implements OnInit {
   zoom: number = 15;
   lugares = null;
   constructor(private lugaresServices: LugaresService) {
-    this.lugares = lugaresServices.getLugares();
+    lugaresServices.getLugares()
+    .subscribe(
+      lugares=>{
+        this.lugares = lugares;
+      }
+    )
   }
 
   ngOnInit() {

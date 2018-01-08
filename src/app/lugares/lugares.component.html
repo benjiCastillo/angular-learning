@@ -6,11 +6,12 @@
   <div class="row">
     <div class="col-md-8">
       <h2>Lugares Cercanos</h2>
+      <a routerLink="/crear" class="btn btn-success">Crear nuevo negocio</a>
       <ul class="list-group">
         <ng-container *ngFor="let lugar of lugares">
           <a routerLink="/detalle/{{ lugar.id }}" [queryParams]="{action:'view', referer:'google'}">
-            <li class="list-group-item" *ngIf="lugar.active">
-              {{ lugar.name }}
+            <li class="list-group-item">
+              {{ lugar.nombre }}
             </li>
           </a>
         </ng-container>
