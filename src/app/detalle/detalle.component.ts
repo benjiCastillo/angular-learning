@@ -13,7 +13,6 @@ export class DetalleComponent implements OnInit {
   constructor(private route: ActivatedRoute, private lugaresService: LugaresService) { 
     this.id = this.route.snapshot.params['id'];
     this.lugar = this.lugaresService.searchLugar(this.id);
-
   }
 
   ngOnInit() {
