@@ -19,6 +19,7 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { LugaresService } from './services/lugares.service';
 import { CrearComponent } from './crear/crear.component';
 import { HttpModule } from '@angular/http';
+import { LinksPipe } from './pipes/links.pipe';
 
 const appRoutes:Routes = [
   {path:'', component:AppComponent},
@@ -34,7 +35,8 @@ const appRoutes:Routes = [
     DetalleComponent,
     LugaresComponent,
     ContactoComponent,
-    CrearComponent
+    CrearComponent,
+    LinksPipe
   ],
   imports: [
     BrowserModule,

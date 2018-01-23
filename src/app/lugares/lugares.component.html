@@ -12,11 +12,12 @@
 
           <li class="list-group-item">
             <a routerLink="/crear/{{ lugar.id }}">
-              {{ lugar.nombre | uppercase}}
+              <h4>{{ lugar.nombre | uppercase}}</h4>
             </a>
             <br>
             <small>Creado: {{ lugar.id | date | uppercase }}</small>
             <small>{{'1500.996' | number: '1.2-2'}}</small>
+            <p [innerHtml]="lugar.descripcion | links"></p>
           </li>
 
         </ng-container>
