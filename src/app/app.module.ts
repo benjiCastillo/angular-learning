@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -41,6 +42,7 @@ const appRoutes:Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    BrowserAnimationsModule,
     AgmCoreModule.forRoot({
     apiKey:"AIzaSyBgVlUWLUChPSewHkl8el4OGFh7FCX1HaY"  
     }),

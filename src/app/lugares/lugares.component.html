@@ -2,6 +2,12 @@
   <agm-marker [latitude]="lat" [longitude]="lng" [title]="title"></agm-marker>
 </agm-map>
 <hr/>
+<div id="cuadrado" [@contenedorAnimable]="state" 
+(@contenedorAnimable.start)="animacionInicia($event)"
+(@contenedorAnimable.done)="animacionTermina($event)">
+
+</div>
+<button class="btn btn-info" (click)="animar()">Animar</button>
 <div class="container">
   <div class="row">
     <div class="col-md-8">
@@ -9,7 +15,6 @@
       <a routerLink="/crear/new" class="btn btn-success">Crear nuevo negocio</a>
       <ul class="list-group">
         <ng-container *ngFor="let lugar of lugares">
-
           <li class="list-group-item">
             <a routerLink="/crear/{{ lugar.id }}">
               <h4>{{ lugar.nombre | uppercase}}</h4>
@@ -19,7 +24,6 @@
             <small>{{'1500.996' | number: '1.2-2'}}</small>
             <p [innerHtml]="lugar.descripcion | links"></p>
           </li>
-
         </ng-container>
       </ul>
     </div>
