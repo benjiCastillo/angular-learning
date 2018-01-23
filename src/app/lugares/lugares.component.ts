@@ -17,6 +17,10 @@ export class LugaresComponent implements OnInit {
     .subscribe(
       lugares=>{
         this.lugares = lugares;
+        console.log("bien")
+      }, error =>{
+        console.log(error)
+        console.log("error")
       }
     )
   }
