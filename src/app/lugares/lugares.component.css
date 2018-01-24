@@ -5,3 +5,7 @@ agm-map {
     width: 200px;
     height: 200px;
 }
+.padding{
+    padding:10px;
+    margin:10px;
+}
