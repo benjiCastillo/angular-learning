@@ -21,12 +21,17 @@ import { LugaresService } from './services/lugares.service';
 import { CrearComponent } from './crear/crear.component';
 import { HttpModule } from '@angular/http';
 import { LinksPipe } from './pipes/links.pipe';
+import { LoginComponent } from './login/login.component';
+import { RegistroComponent } from './registro/registro.component';
+import { AuthService } from './services/auth.service';
 
 const appRoutes:Routes = [
   {path:'', component:AppComponent},
   {path:'lugares', component:LugaresComponent},
   {path:'detalle/:id', component:DetalleComponent},
   {path:'contacto', component:ContactoComponent},
+  {path:'login', component:LoginComponent},
+  {path:'registro', component:RegistroComponent},
   {path:'crear/:id', component:CrearComponent},
 ];
 
@@ -37,7 +42,9 @@ const appRoutes:Routes = [
     LugaresComponent,
     ContactoComponent,
     CrearComponent,
-    LinksPipe
+    LinksPipe,
+    LoginComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +59,7 @@ const appRoutes:Routes = [
     AngularFireAuthModule,
     HttpModule
   ],
-  providers: [LugaresService],
+  providers: [LugaresService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,21 @@
+<section class="container">
+  <h1>Registro</h1>
+  <div class="row">
+    <section class="col-md-offset-4 col-md-4 col-xs-12">
+      <label>Email</label>
+
+      <input type="email" class="form-control" [(ngModel)]="registro.email">
+
+      <br>
+      <label>Password</label>
+
+      <input type="password" class="form-control" [(ngModel)]="registro.password"/>
+      <br>
+      <hr>
+      <br>
+      <button class="btn btn-primary btn-block" (click)="registrar()">Registrar</button>
+      <button class="btn btn-default btn-block">Cancelar</button>
+
+    </section>
+  </div>
+</section>

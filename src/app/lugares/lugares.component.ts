@@ -32,6 +32,7 @@ export class LugaresComponent implements OnInit {
     .subscribe(
       lugares=>{
         this.lugares = lugares;
+        console.log(this.lugares)
         this.animar();
         console.log("bien")
       }, error =>{
