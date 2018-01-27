@@ -6,12 +6,25 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  user: any = {};
+  constructor(private authServices: AuthService) {
 
-  constructor(private authServices:AuthService) { 
-    this.authServices.login("email","pass");
   }
 
   ngOnInit() {
   }
+  login() {
+    console.log("login")
+    let login = this.authServices.login(this.user.email, this.user.password);
+    login.
+      then((res) => {
+        console.log("logueado");
+        alert("Usuario Correcto");
+      })
+      .catch((err) => {
+        alert(err)
+        console.log("error")
+      })
 
+  }
 }
