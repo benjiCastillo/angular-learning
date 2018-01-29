@@ -4,7 +4,7 @@
 
 <div class="container">
   <label>Nombre</label>
-  <input type="text" class="form-control" [(ngModel)]="lugar.nombre"> 
+  <input type="text" class="form-control" [(ngModel)]="lugar.nombre">
   <br>
   <label>Distancia</label>
   <input type="number" class="form-control" [(ngModel)]="lugar.distancia">
@@ -19,6 +19,16 @@
   <input type="text" class="form-control" [(ngModel)]="lugar.descripcion">
   <br>
   <hr>
+  <div class="well">
+    <form>
+      <h3>Buscar Direccion en Google Maps</h3>
+      <input type="text" [formControl]="searchField" class="form-control">
+    </form>
+    <ul class="list-group">
+        <li class="list-group-item" (click)="getAdress(result)" *ngFor="let result of results$  | async"> {{ result.formatted_address }} </li>
+      </ul>
+  </div>
+
   <h2>Datos e direccion</h2>
   <label>Calle y numero</label>
   <input type="text" class="form-control" [(ngModel)]="lugar.calle">

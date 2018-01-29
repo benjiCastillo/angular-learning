@@ -25,7 +25,7 @@
           <a routerLink="/contacto">Contacto</a>
         </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right" *ngIf="!loggedIn">
         <li routerLinkActive="active">
           <a routerLink="/login">Login</a>
         </li>
@@ -33,6 +33,14 @@
           <a routerLink="/registro">Registro</a>
         </li>
 
+      </ul>
+      <ul class="nav navbar-nav navbar-right" *ngIf="loggedIn">
+        <li *ngIf="email">
+          <a >{{ email }}</a>
+        </li>
+        <li routerLinkActive="active">
+          <a (click)="logOut()">LogOut</a>
+        </li>
       </ul>
 
     </div>

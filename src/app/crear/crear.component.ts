@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { LugaresService } from '../services/lugares.service';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import 'rxjs/Rx';
+import { FormControl } from '@angular/forms';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-crear',
@@ -10,9 +14,25 @@ import { ActivatedRoute } from '@angular/router';
 export class CrearComponent implements OnInit {
   lugar:any = {};
   id:any = null;
-  constructor(private lugaresService: LugaresService, private route:ActivatedRoute) {
+  results$: Observable<any>;
+  private searchField:FormControl;
+
+  constructor(private lugaresService: LugaresService, private route:ActivatedRoute, private http: Http) {
     this.id = this.route.snapshot.params['id'];
     this.getLugar();
+    const URL = "https://maps.google.com/maps/api/geocode/json";
+    this.searchField = new FormControl();
+    //cada que el valor cambia searchfield reacciona a los cambio
+    // switchmap le pasamos los cambios en el query, y se realiza la
+    //lamada http , nos regresa la mapeamos a json
+    // mapeamos los  results
+    this.results$ = this.searchField.valueChanges
+    .debounceTime(500)  
+    .switchMap(query=>
+        this.http.get(`${URL}?address=${query}`)
+      )
+      .map(res => res.json())
+      .map(res => res.results);
    }
   //Calle 72 9-55
   ngOnInit() {
@@ -52,6 +72,13 @@ export class CrearComponent implements OnInit {
 
         )
     }
+  }
+
+  getAdress(res){
+    console.log(res);
+    this.lugar.calle = res.address_components[1].long_name+" "+res.address_components[0].long_name;
+    this.lugar.ciudad = res.address_components[4].long_name;
+    this.lugar.pais = res.address_components[6].long_name;
   }
 
 }

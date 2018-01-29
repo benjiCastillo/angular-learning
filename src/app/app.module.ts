@@ -10,6 +10,7 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { DetalleComponent } from './detalle/detalle.component';
 import { FormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from '@angular/forms';
 
 //google maps
 import { AgmCoreModule } from "@agm/core";
@@ -24,15 +25,15 @@ import { LinksPipe } from './pipes/links.pipe';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { AuthService } from './services/auth.service';
-
+import  {GuardService} from './services/guard.service';
 const appRoutes:Routes = [
-  {path:'', component:AppComponent},
+  {path:'', component:LugaresComponent},
   {path:'lugares', component:LugaresComponent},
   {path:'detalle/:id', component:DetalleComponent},
   {path:'contacto', component:ContactoComponent},
   {path:'login', component:LoginComponent},
   {path:'registro', component:RegistroComponent},
-  {path:'crear/:id', component:CrearComponent},
+  {path:'crear/:id', component:CrearComponent,canActivate:[GuardService]},
 ];
 
 @NgModule({
@@ -57,9 +58,10 @@ const appRoutes:Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    HttpModule
+    HttpModule,
+    ReactiveFormsModule
   ],
-  providers: [LugaresService,AuthService],
+  providers: [LugaresService,AuthService,GuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

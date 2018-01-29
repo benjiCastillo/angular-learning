@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -7,7 +9,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent implements OnInit {
   user: any = {};
-  constructor(private authServices: AuthService) {
+  constructor(private authServices: AuthService, private router:Router) {
 
   }
 
@@ -20,6 +22,7 @@ export class LoginComponent implements OnInit {
       then((res) => {
         console.log("logueado");
         alert("Usuario Correcto");
+        this.router.navigate(['lugares']);
       })
       .catch((err) => {
         alert(err)
@@ -27,4 +30,18 @@ export class LoginComponent implements OnInit {
       })
 
   }
+  facebookLogin(){
+    let login = this.authServices.facebookLogin();
+    login
+    .then((res)=>{
+      console.log(res)
+      alert("user loggeado con facebook")
+      this.router.navigate(['lugares']);
+    })
+    .catch((err)=>{
+      console.log(err)
+      alert("error al loguear")
+    })
+  }
+
 }

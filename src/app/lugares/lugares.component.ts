@@ -34,10 +34,10 @@ export class LugaresComponent implements OnInit {
         this.lugares = lugares;
         console.log(this.lugares)
         this.animar();
-        console.log("bien")
+        // console.log("bien")
       }, error =>{
         console.log(error)
-        console.log("error")
+        // console.log("error")
       }
     )
   }
@@ -49,11 +49,11 @@ export class LugaresComponent implements OnInit {
     this.state = (this.state === 'final')? 'inicial': 'final';
   }
   animacionInicia(e){
-    console.log(e);
+    // console.log(e);
     console.log("inicia");
   }
   animacionTermina(e){
-    console.log(e)
+    // console.log(e)
     console.log("termina");
   }
 
