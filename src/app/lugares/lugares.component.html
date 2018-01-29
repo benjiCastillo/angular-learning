@@ -19,7 +19,7 @@
             </a>
             <br>
             <small>Creado: {{ lugar.id | date | uppercase }}</small>
-            <p [innerHtml]="lugar.descripcion "></p>
+            <p [innerHtml]="lugar.descripcion | linky"></p>
           </li>
         </ng-container>
       </ul>
@@ -36,7 +36,7 @@
           <br>
           <small>Creado: {{ lugar.id | date | uppercase }}</small>
           <small>{{'1500.996' | number: '1.2-2'}}</small>
-          <p [innerHtml]="lugar.descripcion "></p>
+          <p [innerHtml]="lugar.descripcion | linky"></p>
         </div>
       </ng-container>
     </div>

@@ -11,7 +11,11 @@ import { AppComponent } from './app.component';
 import { DetalleComponent } from './detalle/detalle.component';
 import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from '@angular/forms';
+import { LinkyModule } from 'angular-linky';
 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
+import { ToasterModule } from 'angular2-toaster';
 //google maps
 import { AgmCoreModule } from "@agm/core";
 import { Routes } from "@angular/router";
@@ -19,6 +23,7 @@ import { RouterModule } from '@angular/router';
 import { LugaresComponent } from './lugares/lugares.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { LugaresService } from './services/lugares.service';
+import { MyInterceptorService } from './services/my-interceptor.service'
 import { CrearComponent } from './crear/crear.component';
 import { HttpModule } from '@angular/http';
 import { LinksPipe } from './pipes/links.pipe';
@@ -51,6 +56,7 @@ const appRoutes:Routes = [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
+    LinkyModule,
     AgmCoreModule.forRoot({
     apiKey:"AIzaSyBgVlUWLUChPSewHkl8el4OGFh7FCX1HaY"  
     }),
@@ -59,9 +65,17 @@ const appRoutes:Routes = [
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     HttpModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    NgHttpLoaderModule,
+    ToasterModule
   ],
-  providers: [LugaresService,AuthService,GuardService],
+  providers: [LugaresService,AuthService,GuardService,
+  {
+    provide:HTTP_INTERCEPTORS,
+    useClass:MyInterceptorService,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

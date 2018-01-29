@@ -1,12 +1,10 @@
-import { Pipe, PipeTransform } from '@angular/core';
+
+import {Pipe, PipeTransform} from "@angular/core";
 import linkifyStr from 'linkifyjs/string';
-@Pipe({
-  name: 'links'
-})
-export class LinksPipe implements PipeTransform {
 
-  transform(str: string): string {
-    return str ? linkifyStr(str,{ target:'_system' }):str;
-  }
-
+@Pipe({name:'linkifystr'})
+export class LinksPipe implements PipeTransform{
+    transform(str: string): string{
+        return str ? linkifyStr(str, {target:'_system'}) : str;
+    }
 }
